@@ -11,7 +11,7 @@ int main(){
   double yf[2] = {1,0};
   double yb[2] = {1,0};
   double analyt = 1;
-  double temp1,temp2;
+  double temp1;
  
   cout << "0" << "\t" << yf[0] << "\t" << yb[0] << "\t" << analyt << endl;
   
@@ -19,9 +19,9 @@ int main(){
     temp1 = yf[0];
     yf[0] = yf[0] + dt * yf[1];
     yf[1] = yf[1] - dt * temp1;
-    temp2 = yb[0];
+    temp1 = yb[0];
     yb[0] = (yb[0] + yb[1] * dt) / (1 + dt*dt);
-    yb[1] = (yb[1] - temp2 * dt) / (1 + dt*dt);
+    yb[1] = (yb[1] - temp1 * dt) / (1 + dt*dt);
     analyt = cos(i*dt);
     cout << i*dt << "\t" << yf[0] << "\t" << yb[0] << "\t" << analyt << endl;
   }
